@@ -1,4 +1,5 @@
 # Unity-Android
-Unity-Android 
 
-Open source TTS and Voice Recognizer
+Breaked the Vocal gap of Unity and Android. 
+
+Open source Text to Speach and Voice Recognizer
