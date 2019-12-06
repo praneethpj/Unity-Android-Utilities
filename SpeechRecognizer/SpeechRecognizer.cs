@@ -27,85 +27,62 @@ namespace KKSpeech {
 			this.displayName = displayName;
 		}
 	}
-
-	/*
-	 * check readme.pdf before using!
-	 */
+ 
 	public class SpeechRecognizer : System.Object {
 
 		public static bool ExistsOnDevice() {
-			#if UNITY_IOS && !UNITY_EDITOR
-			return iOSSpeechRecognizer._EngineExists();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			return AndroidSpeechRecognizer.EngineExists();
 			#endif
-			return false; // sorry, no support besides Android and iOS :-(
+			return false; 
 		}
 
 		public static void RequestAccess() {
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer._RequestAccess();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.RequestAccess();
 			#endif
 		}
 
 		public static bool IsRecording() {
-			#if UNITY_IOS && !UNITY_EDITOR
-			return iOSSpeechRecognizer._IsRecording();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			return AndroidSpeechRecognizer.IsRecording();
 			#endif
 			return false;
 		}
 
 		public static AuthorizationStatus GetAuthorizationStatus() {
-			#if UNITY_IOS && !UNITY_EDITOR
-			return (AuthorizationStatus)iOSSpeechRecognizer._AuthorizationStatus();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			return (AuthorizationStatus)AndroidSpeechRecognizer.AuthorizationStatus();
 			#endif
 			return AuthorizationStatus.NotDetermined;
 		}
 
 		public static void StopIfRecording() {
-			Debug.Log("StopRecording...");
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer._StopIfRecording();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.StopIfRecording();
 			#endif
 		}
 
 		private static void StartRecording(SpeechRecognitionOptions options) {
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer._StartRecording(options.shouldCollectPartialResults);
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.StartRecording(options);
 			#endif
 		}
 
 		public static void StartRecording(bool shouldCollectPartialResults) {
-			Debug.Log("StartRecording...");
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer._StartRecording(shouldCollectPartialResults);
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.StartRecording(shouldCollectPartialResults);
 			#endif
 		}
 
 		public static void GetSupportedLanguages() {
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer.SupportedLanguages();
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.GetSupportedLanguages();
 			#endif
 		}
 
 		public static void SetDetectionLanguage(string languageID) {
-			#if UNITY_IOS && !UNITY_EDITOR
-			iOSSpeechRecognizer._SetDetectionLanguage(languageID);
-			#elif UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidSpeechRecognizer.SetDetectionLanguage(languageID);
 			#endif
 		}
