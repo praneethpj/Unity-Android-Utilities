@@ -1,6 +1,6 @@
 # Unity-Android
 
-Breaked the Vocal gap of Unity and Android. 
+Unity and Android. 
 
 TTS: Included the Text to speech function.
 
